@@ -72,7 +72,14 @@ screen.on('keypress', function(ch, key) {
 
 screen.on('element focus', function(cur, old) {
   if (old.border) old.style.border.fg = 'black';
-  if (cur.border) cur.style.border.fg = 'green';
+  if (cur.border) cur.style.border.fg = 'blue';
+  // Skip disabled elements
+  if (!['line'].includes(cur.border.type)) {
+	if (cur.index > old.index)
+		screen.focusNext();
+	else
+		screen.focusPrevious();
+  }
   focused = cur;
   screen.render();
 });

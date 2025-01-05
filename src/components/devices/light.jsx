@@ -4,6 +4,7 @@ import { darkenRgb } from '../../utils/colors';
 
 export const Light = forwardRef(({ item, index, handleActionClick, handleActionScroll, handleActionDrag, ...parentProps }, ref) => {
 	const shouldDrawBorders = () => true;
+	const available = () => item.onoff !== null;
 
 	return (
 		<box {...parentProps} ref={ref}
@@ -28,7 +29,7 @@ export const Light = forwardRef(({ item, index, handleActionClick, handleActionS
 					}
 				}}
 				padding={{ top: 0, left: 0, right: 0, bottom: 0 }}
-				border={ shouldDrawBorders() ? { type: 'line', fg: 'black' } : {}}
+				border={ available() && shouldDrawBorders() ? { type: 'line', fg: 'black' } : { type: 'bg' }}
 				keys={true}
 				mouse={true}
 				inputOnFocus={true}
@@ -51,7 +52,7 @@ export const Light = forwardRef(({ item, index, handleActionClick, handleActionS
 						fg: item.onoff ? 'red' : 'white',
 					},
 				}}
-				border={ shouldDrawBorders() ? { type: 'line', ch: '.' , fg: 'black' } : {}}
+				border={ available() && shouldDrawBorders() ? { type: 'line', ch: '.' , fg: 'black' } : { type: 'bg' }}
 				padding={{ top: shouldDrawBorders() ? 1 : 0, left: 5, right: 0, bottom: 0 }}
 				mouse={true}
 				keys={true}
@@ -81,7 +82,7 @@ export const Light = forwardRef(({ item, index, handleActionClick, handleActionS
 						bg: 'lightgreen',
 					},
 				}}
-				border={ shouldDrawBorders() ? { type: 'line', fg: 'black' } : {}}
+				border={ available() && shouldDrawBorders() ? { type: 'line', fg: 'black' } : { type: 'bg' }}
 				padding={{ top: 0, left: 0, right: 0, bottom: 0 }}
 				keys={true}
 				mouse={true}
@@ -109,7 +110,7 @@ export const Light = forwardRef(({ item, index, handleActionClick, handleActionS
 					color: item.onoff ? item.color : [30,30,30] 
 					}]
 				}}
-				border={ shouldDrawBorders() ? { type: 'line', fg: 'black' } : {}}
+				border={ available() && shouldDrawBorders() ? { type: 'line', fg: 'black' } : { type: 'bg' }}
 				style={{
 					bg: [10,10,10], 
 				}}
@@ -139,7 +140,7 @@ export const Light = forwardRef(({ item, index, handleActionClick, handleActionS
 					mouse
 					width="30%"
 					left={0}
-					border={ shouldDrawBorders() ? { type: 'line', fg: 'black' } : {}}
+					border={ available() && shouldDrawBorders() ? { type: 'line', fg: 'black' } : { type: 'bg' }}
 				>
 					🗱
 				</button>
@@ -148,7 +149,7 @@ export const Light = forwardRef(({ item, index, handleActionClick, handleActionS
 					width="30%"
 					right={0}
 					shrink={true}
-					border={ shouldDrawBorders() ? { type: 'line', fg: 'black' } : {}}
+					border={ available() && shouldDrawBorders() ? { type: 'line', fg: 'black' } : { type: 'bg' }}
 				>
 					🕶
 				</button>

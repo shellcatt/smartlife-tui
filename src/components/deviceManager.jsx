@@ -57,6 +57,9 @@ export const DeviceManager = ({ screen }) => {
 	const handleActionClick = async (idx, anykey = true) => {
 		if (typeof anykey == 'string' && !['enter', 'space'].includes(anykey)) 
 			return;
+
+		if (devices[idx].onoff === null)
+			return;
 		
 		devices[idx].onoff = !devices[idx].onoff;
 		devices[idx].action = actionTitle(devices[idx].onoff)
