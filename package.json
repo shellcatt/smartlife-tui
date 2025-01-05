@@ -4,8 +4,9 @@
   "description": "Tuya SmartLife TUI",
   "scripts": {
     "start": "babel-node index.js",
-    "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "babel-node tests/index.js",
+    "test:debug": "BABEL_ENV=debug babel-node --inspect-brk=0.0.0.0:9229 tests/index.js",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
