@@ -37,28 +37,3 @@ export const prc2rgbarr = (val) => {
 
 	return [r, g, b];
 }
-
-export const rgbarr2prc = (rgb) => {
-    let [r, g, b] = rgb.map(v => v / 255); // Normalize RGB values to the range [0, 1]
-    let max = Math.max(r, g, b);
-    let min = Math.min(r, g, b);
-    let delta = max - min;
-
-    let h = 0;
-
-    if (delta === 0) {
-        h = 0; // No saturation, hue is undefined (but default to 0)
-    } else if (max === r) {
-        h = ((g - b) / delta) % 6;
-    } else if (max === g) {
-        h = (b - r) / delta + 2;
-    } else {
-        h = (r - g) / delta + 4;
-    }
-
-    h = Math.round(h * 60); // Convert to degrees
-    if (h < 0) h += 360; // Ensure hue is non-negative
-
-    let percentage = (h / 360) * 100; // Map hue to percentage range [0, 100]
-    return percentage;
-}
