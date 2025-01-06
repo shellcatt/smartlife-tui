@@ -3,6 +3,7 @@ import blessed from 'blessed'
 import { render } from 'react-blessed';
 
 import { DeviceProvider } from './contexts/DeviceContext';
+// import { DeviceProvider } from './contexts/MockDeviceContext';
 import { DeviceManager } from './components/deviceManager';
 
 const program = blessed.program()
@@ -36,7 +37,7 @@ const App = (props) => {
             left="center"
         >
 			
-			<DeviceProvider>
+			<DeviceProvider screen={screen}>
 				<DeviceManager screen={screen} />
 			</DeviceProvider>
         </box>

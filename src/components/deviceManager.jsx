@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 
-import { DeviceContext, useDeviceContext, DeviceProvider } from '../contexts/DeviceContext';
+import { useDeviceContext } from '../contexts/DeviceContext';
+// import { useDeviceContext } from '../contexts/MockDeviceContext';
 
 import { Grid, GridItem } from '../react-blessed-contrib';
 import { Switch } from '../components/devices/switch';
@@ -61,9 +62,17 @@ export const DeviceManager = ({ screen }) => {
 		if (devices[idx].onoff === null)
 			return;
 		
-		devices[idx].onoff = !devices[idx].onoff;
-		devices[idx].action = actionTitle(devices[idx].onoff)
-		setDevices([...devices])
+		try {
+			await toggleDeviceState(devices[idx].id);
+		} catch (err) {
+			screen.destroy();
+			console.log(err);
+			process.exit()
+		}
+		// // mocks
+		// devices[idx].onoff = !devices[idx].onoff;
+		// devices[idx].action = actionTitle(devices[idx].onoff);
+		// setDevices([...devices]);
 	}
 
 	const handleActionScroll = async (idx, prop, dirOrKey) => {
