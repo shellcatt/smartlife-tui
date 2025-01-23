@@ -8,9 +8,9 @@ export const DeviceProvider = ({ children }) => {
   const [devices, setDevices] = useState([]);
 
 
-  useEffect(async () => {
+  useEffect(() => {
 	
-	setDevices(mockDevices_UI);
+	  setDevices(mockDevices_UI);
 
   }, []);
 

@@ -14,7 +14,7 @@ export const DeviceManager = ({ screen }) => {
 	const { devices, setDevices, toggleDeviceState } = useDeviceContext();
 	const [itemsPerRow, setItemsPerRow] = useState(3);
 
-	useEffect(async () => {
+	useEffect(() => {
 
 		const throttledResizer = throttle( handleResize, 150 );
 		screen.on('resize', throttledResizer);

@@ -14,7 +14,7 @@ const App = (props) => {
 	const { screen } = props;
   	const refContainer = useRef('first');
   
-	useEffect(async () => {
+	useEffect(() => {
 	
 	}, []);
 
