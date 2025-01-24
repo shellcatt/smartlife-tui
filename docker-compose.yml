@@ -1,13 +1,19 @@
 services:
   app:
-    build: .
+    build: 
+      context: .
+      target: prod
+    image: ${IMAGE}
+    container_name: ${COMPOSE_PROJECT_NAME}
+    stdin_open: true
+    tty: true
     volumes:
       - .:/src
 
   app-debug:
-    build: .
+    extends: app
+    build: 
+      target: debug
     ports:
       - "9229:9229"  # Debugging port
-    volumes:
-      - .:/src
-    command: ["npm", "run", "test:debug"]
+    profiles: [debug]

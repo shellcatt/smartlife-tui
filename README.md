@@ -1,5 +1,12 @@
 # Smart Life Terminal Dashboard 
 
+## Run
+```
+# Either
+docker compose run --rm app
+# Or 
+docker run --rm -it -v .:/src shellcat/smartlife-tui 
+```
 ## TODO
 
 - [x] create single-screen TUI (`react-blessed-contrib`)
