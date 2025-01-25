@@ -10,7 +10,7 @@ docker run --rm -it -v .:/src shellcat/smartlife-tui
 ## TODO
 
 - [x] create single-screen TUI (`react-blessed-contrib`)
-- [*] create separate components based on device types
+- [x] create separate components based on device types
   - [x] Socket
   - [x] Light
   - [ ] Power Strip
