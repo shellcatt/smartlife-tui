@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState, useRef } from 'react'
 import blessed from 'blessed'
 import { render } from 'react-blessed';
 
+import { ErrorBoundary } from './contexts/ErrorBoundary'
 import { DeviceProvider } from './contexts/DeviceContext';
 import { DeviceManager } from './components/deviceManager';
 
@@ -36,9 +37,11 @@ const App = (props) => {
             left="center"
         >
 			
-			<DeviceProvider>
-				<DeviceManager screen={screen} />
-			</DeviceProvider>
+          <ErrorBoundary>
+            <DeviceProvider>
+                <DeviceManager screen={screen} />
+              </DeviceProvider>
+          </ErrorBoundary>
         </box>
     )
 };
